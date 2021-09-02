@@ -1,0 +1,26 @@
+bool Solution::hotel(vector<int> &arrive, vector<int> &depart, int K) {
+   sort(arrive.begin(),arrive.end());
+    sort(depart.begin(),depart.end());
+    int result=0,current=0;
+    int i=0,j=0,n= arrive.size();
+    while(i<n && j<n)
+    {
+        if(arrive[i]<depart[j]){
+            current++;
+            i++;
+        }
+        else if(arrive[i]>=depart[j]){
+            current--;
+            j++;
+        }
+        if(current>result){
+            result=current;
+        }
+    }
+    if(result>K)
+        return 0;
+    else
+        return 1;
+    
+    
+}
